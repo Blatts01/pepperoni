@@ -1,0 +1,18 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "RISC-V kas",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"build": { "dockerfile": "Dockerfile" },
+
+    "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+    },
+    "extensions": [
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        "dbaeumer.vscode-eslint"
+    ],
+    "postCreateCommand": "python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt"
+
+}

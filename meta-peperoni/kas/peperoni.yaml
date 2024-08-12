@@ -1,0 +1,49 @@
+header:
+  version: 14
+
+build_system: oe
+machine: qemuriscv64
+distro: jalapeno
+
+repos:
+
+  meta-peperoni:
+    path: "meta-peperoni"
+
+  openembedded-core:
+    url: https://git.openembedded.org/openembedded-core
+    commit: "136a25567499191b23a4d000a06bf83a473224ca"  
+    path: "layers/openembedded-core"
+    layers:
+      meta:
+      meta-selftest:
+      meta-skeleton:
+
+  meta-openembedded:
+    url: https://git.openembedded.org/meta-openembedded
+    commit: "2338409efc51cf2022ff5610a9fb689251706e2b"
+    path: "layers/meta-openembedded"
+    layers:
+      meta-oe:
+      meta-filesystems:
+      meta-gnome:
+      meta-xfce:
+      meta-initramfs:
+      meta-networking:
+      meta-multimedia:
+      meta-python: 
+
+  meta-riscv:
+    url: https://github.com/riscv/meta-riscv
+    commit: "3b31f6f82458cbe0773a8825975baf0f0a867725"
+    path: "layers/meta-riscv"
+
+  bitbake:
+    url: https://git.openembedded.org/bitbake
+    commit: "8f90d10f9efc9a32e13f6bd031992aece79fe7cc"  
+    path: "layers/openembedded-core/bitbake"
+    layers:
+      bitbake: excluded
+
+target:
+  - core-image-minimal
